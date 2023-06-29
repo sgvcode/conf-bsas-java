@@ -304,11 +304,6 @@ p.salida {
   transition: all .2s ease;
 }
 
-/* .box__ticket:active {
-  transform: scale(103%);
-  filter:drop-shadow(0px 5px 3px lightgray);
-} */
-
 .button-active {
   filter: drop-shadow(0px 5px 3px lightgray);
   transform: scaleY(105%);
@@ -438,21 +433,44 @@ button.login:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 400px;
-  height: 400px;
-  margin: auto;
+  width: 300px;
+  height: 300px;
+  position: fixed;
+  top: 70px;
+  right: -300px;
   border: 1px solid var(--green);
   border-radius: 5px;
-  padding: 30px;
+
   visibility: hidden;
+  z-index: 9999;
+  animation-name: popupAnimation;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  background-color: var(--white);
+}
+
+@keyframes popupAnimation {
+  0% {
+    right: -300px;
+    opacity: 0;
+  }
+
+  100% {
+    right: 0;
+    opacity: 1;
+  }
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 220px;
   margin: auto;
   align-items: center;
+}
+
+.enviar {
+  margin-top: 30px;
 }
 
 /* INICIO VIEPORTS */
