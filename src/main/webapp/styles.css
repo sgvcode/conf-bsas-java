@@ -436,11 +436,11 @@ button.login:hover {
   width: 300px;
   height: 300px;
   position: fixed;
-  top: 70px;
+  top: 77px;
   right: -300px;
   border: 1px solid var(--green);
   border-radius: 5px;
-
+  padding: 30px;
   visibility: hidden;
   z-index: 9999;
   animation-name: popupAnimation;
@@ -456,7 +456,7 @@ button.login:hover {
   }
 
   100% {
-    right: 0;
+    right: 0px;
     opacity: 1;
   }
 }

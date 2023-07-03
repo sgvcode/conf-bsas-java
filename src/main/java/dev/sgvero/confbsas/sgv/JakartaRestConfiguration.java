@@ -1,4 +1,4 @@
-package com.codoacodo.confbas;
+package dev.sgvero.confbsas.sgv;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;

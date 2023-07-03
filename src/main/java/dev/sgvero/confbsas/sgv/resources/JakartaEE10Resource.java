@@ -1,4 +1,4 @@
-package com.codoacodo.confbas.resources;
+package dev.sgvero.confbsas.sgv.resources;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

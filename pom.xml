@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.codoacodo</groupId>
-    <artifactId>ConfBas</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>dev.sgvero</groupId>
+    <artifactId>confbsas-sgv</artifactId>
+    <version>v1</version>
     <packaging>war</packaging>
-    <name>ConfBas</name>
+    <name>confbsas-sgv-v1</name>
     
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -30,7 +30,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
         </dependency>
-
         
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
         <dependency>
@@ -38,12 +37,12 @@
             <artifactId>commons-dbcp2</artifactId>
             <version>2.9.0</version>
         </dependency>
+
     </dependencies>
     
     <build>
         <plugins>
             <plugin>
-                
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
@@ -59,6 +58,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.2</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
