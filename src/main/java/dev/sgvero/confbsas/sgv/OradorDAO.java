@@ -19,8 +19,8 @@ public class OradorDAO {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             try (Connection connection = DriverManager.getConnection(url, username, password);
-                    PreparedStatement statement = connection.prepareStatement("SELECT * FROM oradores");
-                    ResultSet resultSet = statement.executeQuery()) {
+                 PreparedStatement statement = connection.prepareStatement("SELECT * FROM oradores");
+                 ResultSet resultSet = statement.executeQuery()) {
 
                 while (resultSet.next()) {
                     String nombre = resultSet.getString("nombre");
@@ -41,8 +41,7 @@ public class OradorDAO {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             try (Connection connection = DriverManager.getConnection(url, username, password);
-                    PreparedStatement statement = connection
-                            .prepareStatement("INSERT INTO oradores (nombre, apellido, temario) VALUES (?, ?, ?)")) {
+                 PreparedStatement statement = connection.prepareStatement("INSERT INTO oradores (nombre, apellido, temario) VALUES (?, ?, ?)")) {
 
                 statement.setString(1, nombre);
                 statement.setString(2, apellido);
