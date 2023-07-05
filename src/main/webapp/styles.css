@@ -384,9 +384,21 @@ a {
   color: var(--green);
 }
 
+.btn-orador-edit:hover {
+  border: 1px solid var(--green);
+  background-color: var(--green);
+  color: var(--white);
+}
+
 .btn-orador-del {
   border: 1px solid rgb(219, 54, 70);
   color: rgb(219, 54, 70);
+}
+
+.btn-orador-del:hover {
+  border: 1px solid rgb(219, 54, 70);
+  background-color: rgb(219, 54, 70);
+  color: var(--white)
 }
 
 .btn-orador-add {
