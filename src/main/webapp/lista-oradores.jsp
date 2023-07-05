@@ -15,8 +15,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="favicon.png">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
         <title>Conf Bs As - Lista de Oradores</title>
     </head>
@@ -47,15 +46,22 @@
                     <input class="enviar" id="submit" type="submit" value="Enviar" />
                 </form>
             </section>
+            <div class="d-flex justify-content-end mt-5 mx-5">
+                <a href="agregar-orador.jsp" class="btn-orador-add">Agregar orador</a>
+            </div>
             <section class="my-5 mx-5">
                 <%
                  OradorDAO oradorDAO = new OradorDAO();
                  List<Orador> oradores = oradorDAO.getOradores();
                  for (Orador orador : oradores) {
                 %>
-                <p class="oradores bg-light px-2 small">Nombre: <span class="text-success"><%= orador.getNombre() %></span></p>
-                <p class="oradores bg-light px-2 small">Apellido: <span class="text-success"><%= orador.getApellido() %></span></p>
-                <p class="oradores bg-light px-2 small">Temario: <span class="text-success"><%= orador.getTemario() %></span></p>
+                <p class="oradores bg-light px-2 small">Nombre: <span class="text-secondary fw-bold fst-italic"><%= orador.getNombre() %></span></p>
+                <p class="oradores bg-light px-2 small">Apellido: <span class="text-secondary fw-bold fst-italic"><%= orador.getApellido() %></span></p>
+                <p class="oradores bg-light px-2 small">Temario: <span class="text-secondary fw-bold fst-italic"><%= orador.getTemario() %></span></p>
+                <div class="gap-2 d-flex justify-content-end">
+                    <a href="editar-orador.jsp?id=<%= orador.getId() %>" class="btn-orador-edit">Editar</a>
+                    <a href="OradorServlet?action=borrar&id=<%= orador.getId() %>" class="btn-orador-del">Borrar</a>
+                </div>
                 <hr>
                 <%
                     }
@@ -79,9 +85,7 @@
             </div>
         </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-                integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
         <script src="ticket.js"></script>
     </body>
 

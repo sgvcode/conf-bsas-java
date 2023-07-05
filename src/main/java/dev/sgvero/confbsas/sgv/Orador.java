@@ -1,14 +1,24 @@
 package dev.sgvero.confbsas.sgv;
 
 public class Orador {
+    private int id;
     private String nombre;
     private String apellido;
     private String temario;
 
-    public Orador(String nombre, String apellido, String temario) {
+    public Orador(int id, String nombre, String apellido, String temario) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.temario = temario;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {

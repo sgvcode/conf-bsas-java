@@ -208,6 +208,12 @@ h6 .st {
   color: var(--green)
 }
 
+input.temario{
+    width: 400px;
+    height: 50px;
+    overflow-wrap: normal;
+}
+
 form {
   text-align: center;
 }
@@ -358,6 +364,25 @@ p.salida {
 
 .box__ticket p {
   font-size: 1rem;
+}
+
+.btn-orador-del,
+.btn-orador-edit {
+    width: 50px;
+    border-radius: 5px;
+    background: transparent;
+    padding: 2px 8px;
+    font-size: .7rem;
+}
+
+.btn-orador-edit {
+    border: 1px solid green;
+    color: green;
+}
+
+.btn-orador-del {
+    border: 1px solid red;
+    color: red;
 }
 
 footer {

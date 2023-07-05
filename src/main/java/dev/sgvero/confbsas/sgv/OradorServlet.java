@@ -11,7 +11,32 @@ import java.io.IOException;
 public class OradorServlet extends HttpServlet {
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+
+        if (action != null) {
+            if (action.equals("editar")) {
+                mostrarFormularioEdicion(request, response);
+            } else if (action.equals("borrar")) {
+                borrarOrador(request, response);
+            }
+        } else {
+            // Redirigir o mostrar un mensaje de error apropiado
+        }
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+
+        if (action != null && action.equals("editar")) {
+            editarOrador(request, response);
+        } else {
+            agregarOrador(request, response);
+        }
+    }
+
+    private void agregarOrador(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String temario = request.getParameter("temario");
@@ -21,6 +46,46 @@ public class OradorServlet extends HttpServlet {
         oradorDAO.guardarOrador(nombre, apellido, temario);
 
         // Redirigir a una página de confirmación o agradecimiento
+        response.sendRedirect("lista-oradores.jsp");
+    }
+
+    private void mostrarFormularioEdicion(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        // Obtener el orador actual desde la base de datos
+        OradorDAO oradorDAO = new OradorDAO();
+        Orador orador = oradorDAO.getOradorById(id);
+
+        if (orador != null) {
+            request.setAttribute("orador", orador);
+            request.getRequestDispatcher("editar-orador.jsp").forward(request, response);
+        } else {
+            // Orador no encontrado, redirigir o mostrar un mensaje de error apropiado
+        }
+    }
+
+    private void editarOrador(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String temario = request.getParameter("temario");
+
+        // Realizar la lógica para editar el orador en la base de datos
+        OradorDAO oradorDAO = new OradorDAO();
+        oradorDAO.editarOrador(id, nombre, apellido, temario);
+
+        // Redirigir a la página de éxito o mostrar mensaje de éxito en la misma página
+        response.sendRedirect("lista-oradores.jsp");
+    }
+
+    private void borrarOrador(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        // Realizar la lógica para borrar el orador de la base de datos
+        OradorDAO oradorDAO = new OradorDAO();
+        oradorDAO.borrarOrador(id);
+
+        // Redirigir a la página de éxito o mostrar mensaje de éxito en la misma página
         response.sendRedirect("lista-oradores.jsp");
     }
 }
