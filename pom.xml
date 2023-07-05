@@ -68,6 +68,7 @@
                 <version>2.6</version>
                 <executions>
                     <execution>
+                        <?m2e ignore?>
                         <phase>validate</phase>
                         <goals>
                             <goal>copy</goal>

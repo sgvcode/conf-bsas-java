@@ -208,10 +208,9 @@ h6 .st {
   color: var(--green)
 }
 
-input.temario{
-    width: 400px;
-    height: 50px;
-    overflow-wrap: normal;
+input.temario {
+  display: block;
+  width: 100%;
 }
 
 form {
@@ -366,24 +365,44 @@ p.salida {
   font-size: 1rem;
 }
 
+a {
+  text-decoration: none;
+  color: var(--lightgreen);
+}
+
 .btn-orador-del,
 .btn-orador-edit {
-    width: 50px;
-    border-radius: 5px;
-    background: transparent;
-    padding: 2px 8px;
-    font-size: .7rem;
+  width: 50px;
+  border-radius: 5px;
+  background: transparent;
+  padding: 2px 8px;
+  font-size: .7rem;
 }
 
 .btn-orador-edit {
-    border: 1px solid green;
-    color: green;
+  border: 1px solid var(--green);
+  color: var(--green);
 }
 
 .btn-orador-del {
-    border: 1px solid red;
-    color: red;
+  border: 1px solid rgb(219, 54, 70);
+  color: rgb(219, 54, 70);
 }
+
+.btn-orador-add {
+  border: 1px solid var(--lightgreen);
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+.btn-orador-add:hover {
+  border: 1px solid var(--lightgreen);
+  padding: 2px 8px;
+  border-radius: 5px;
+  background-color: var(--lightgreen);
+  color: var(--white)
+}
+
 
 footer {
   background: rgb(28, 54, 67);
