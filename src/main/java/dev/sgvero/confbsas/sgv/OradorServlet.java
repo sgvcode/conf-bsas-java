@@ -21,7 +21,7 @@ public class OradorServlet extends HttpServlet {
                 borrarOrador(request, response);
             }
         } else {
-            // Redirigir o mostrar un mensaje de error apropiado
+            // Redirigir o mostrar un mensaje - ver después
         }
     }
 
@@ -45,7 +45,7 @@ public class OradorServlet extends HttpServlet {
         OradorDAO oradorDAO = new OradorDAO();
         oradorDAO.guardarOrador(nombre, apellido, temario);
 
-        // Redirigir a una página de confirmación o agradecimiento
+        // Redirigir a listado de oradores
         response.sendRedirect("lista-oradores.jsp");
     }
 
@@ -60,7 +60,7 @@ public class OradorServlet extends HttpServlet {
             request.setAttribute("orador", orador);
             request.getRequestDispatcher("editar-orador.jsp").forward(request, response);
         } else {
-            // Orador no encontrado, redirigir o mostrar un mensaje de error apropiado
+            // Orador no encontrado, redirigir o mostrar un mensaje - ver después
         }
     }
 
@@ -70,22 +70,22 @@ public class OradorServlet extends HttpServlet {
         String apellido = request.getParameter("apellido");
         String temario = request.getParameter("temario");
 
-        // Realizar la lógica para editar el orador en la base de datos
+        // Editar el orador en la base de datos
         OradorDAO oradorDAO = new OradorDAO();
         oradorDAO.editarOrador(id, nombre, apellido, temario);
 
-        // Redirigir a la página de éxito o mostrar mensaje de éxito en la misma página
+        // Redirigir a la página del listado de oradores
         response.sendRedirect("lista-oradores.jsp");
     }
 
     private void borrarOrador(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
 
-        // Realizar la lógica para borrar el orador de la base de datos
+        // Borrar el orador de la base de datos
         OradorDAO oradorDAO = new OradorDAO();
         oradorDAO.borrarOrador(id);
 
-        // Redirigir a la página de éxito o mostrar mensaje de éxito en la misma página
+        // Redirigir a la página listado de oradores
         response.sendRedirect("lista-oradores.jsp");
     }
 }

@@ -379,7 +379,7 @@ a {
 }
 
 .btn-orador-del {
-   
+
     color: rgb(219, 54, 70);
 }
 
@@ -387,18 +387,24 @@ a {
     color: lightcoral;
 }
 
-.btn-orador-add:hover {
-    background-color: var(--gray);
-}
-
 .btn-orador-add {
-    padding: 5px 10px;
-    border-radius: 7px;
+    position: fixed;
+    top: 150px;
+    padding: 5px 14px;
+    border: 14px solid white;
+    border-right: 1px solid var(--gray);
+    border-radius: 24px 0 0 24px;
     background-color: rgb(150, 201, 62);
     color: var(--white);
     transition: all 0.8s ease;
+    font-size: .8rem;
+    text-transform: uppercase;
+    z-index: 1100;
 }
 
+.btn-orador-add:hover {
+    background-color: var(--gray);
+}
 
 footer {
     background: rgb(28, 54, 67);
