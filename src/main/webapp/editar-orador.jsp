@@ -37,7 +37,7 @@
             <section class="container mt-5 formulario">
                 <h6>modifica los datos del orador</h6>
                 <h3>orador</h3>
-                <form action="OradorServlet?action=editar" method="post">
+                <form action="OradorServlet?action=editar" method="post" onsubmit="return validateForm()">
                     <input type="hidden" name="id" value="<%= orador.getId() %>">
                     <input type="text" name="nombre" value="<%= orador.getNombre() %>">
                     <input type="text" name="apellido" value="<%= orador.getApellido() %>">

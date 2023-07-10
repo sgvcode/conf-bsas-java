@@ -5,6 +5,7 @@
     --white: rgb(253, 253, 253);
     --darkgreen: rgba(28, 54, 67, 1);
     --lightgreen: rgba(30, 83, 113, 1);
+    --yellow:  #ffc800;
 }
 
 *,
@@ -20,6 +21,23 @@
 
 html {
     scroll-behavior: smooth;
+}
+
+.bloque-datos {
+    background-color: #F8F9FA;
+    padding-top: 5px;
+}
+
+.bloque-lista {
+    width: 80%;
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+code {
+    display: block;
+    color: var(--darkgreen);
+    padding-bottom: 10px;
 }
 
 .navbar {

@@ -39,34 +39,45 @@
             <section class="popup__login" id="login">
                 <form class="form-group">
                     <input type="text" class="form-control" id="username" placeholder="Usuario">
-                    <input type="password" class="form-control" id="password" placeholder="Contraseï¿½a">
+                    <input type="password" class="form-control" id="password" placeholder="Contraseña">
                     <input class="enviar" id="submit" type="submit" value="Enviar" />
                 </form>
             </section>
             <div class="d-flex justify-content-end mt-5 mx-5 btn-pos">
                 <a href="agregar-orador.jsp" class="btn-orador-add">Agregar orador</a>
             </div>
-            <section class="my-5 mx-5">
+            <section class="bloque-lista">
                 <% OradorDAO oradorDAO=new OradorDAO(); List<Orador> oradores = oradorDAO.getOradores();
                     for (Orador orador : oradores) {
                 %>
-                <p class="oradores bg-light px-2 small">Nombre: <span
-                        class="text-secondary fw-bold fst-italic">
-                        <%= orador.getNombre() %>
-                    </span></p>
-                <p class="oradores bg-light px-2 small">Apellido: <span
-                        class="text-secondary fw-bold fst-italic">
-                        <%= orador.getApellido() %>
-                    </span></p>
-                <p class="oradores bg-light px-2 small">Temario: <span
-                        class="text-secondary fw-bold fst-italic">
-                        <%= orador.getTemario() %>
-                    </span></p>
-                <div class="gap-2 d-flex justify-content-end">
-                    <a href="editar-orador.jsp?id=<%= orador.getId() %>" class="btn-orador-edit"><i
-                            class="fa-solid fa-pen-to-square"></i></a>
-                    <a href="OradorServlet?action=borrar&id=<%= orador.getId() %>"
-                       class="btn-orador-del"><i class="fa-solid fa-trash-can"></i></a>
+                <div class="bloque-datos">
+                    <div class="bloque-orador">
+                        <code class="oradores px-2 small">Nombre: <span
+                                class="text-secondary fw-bold fst-italic">
+                                <%= orador.getNombre() %>
+                            </span>
+                        </code>
+                    </div>
+                    <div class="bloque-oreador">
+                        <code class="oradores px-2 small">Apellido: <span
+                                class="text-secondary fw-bold fst-italic">
+                                <%= orador.getApellido() %>
+                            </span>
+                        </code>
+                    </div>
+                    <div class="bloque-orador">
+                        <code class="oradores px-2 small">Temario: <span
+                                class="text-secondary fw-bold fst-italic">
+                                <%= orador.getTemario() %>
+                            </span>
+                        </code>
+                    </div>
+                    <div class="gap-2 d-flex bg-warning justify-content-end pe-2">
+                        <a href="editar-orador.jsp?id=<%= orador.getId() %>" class="btn-orador-edit">
+                            <i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="OradorServlet?action=borrar&id=<%= orador.getId() %>"
+                           class="btn-orador-del"><i class="fa-solid fa-trash-can"></i></a>
+                    </div>
                 </div>
                 <hr>
                 <% } %>
