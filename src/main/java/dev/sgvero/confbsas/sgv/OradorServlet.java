@@ -7,7 +7,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
 @WebServlet(urlPatterns = "/OradorServlet")
 public class OradorServlet extends HttpServlet {
 
@@ -23,6 +22,7 @@ public class OradorServlet extends HttpServlet {
             }
         } else {
             // Redirigir o mostrar un mensaje - ver después
+            response.sendRedirect("lista-oradores.jsp");
         }
     }
 
@@ -41,10 +41,11 @@ public class OradorServlet extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String temario = request.getParameter("temario");
+        String foto = request.getParameter("foto");
 
         // Guardar los valores en la base de datos
         OradorDAO oradorDAO = new OradorDAO();
-        oradorDAO.guardarOrador(nombre, apellido, temario);
+        oradorDAO.guardarOrador(nombre, apellido, temario, foto);
 
         // Redirigir a listado de oradores
         response.sendRedirect("lista-oradores.jsp");
@@ -65,19 +66,33 @@ public class OradorServlet extends HttpServlet {
         }
     }
 
-    private void editarOrador(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String temario = request.getParameter("temario");
+   private void editarOrador(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    int id = Integer.parseInt(request.getParameter("id"));
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String temario = request.getParameter("temario");
+    String foto = request.getParameter("foto");
+
+    // Obtener el orador actual desde la base de datos
+    OradorDAO oradorDAO = new OradorDAO();
+    Orador oradorActual = oradorDAO.getOradorById(id);
+
+    if (oradorActual != null) {
+        // Verificar si se seleccionó una nueva imagen
+        if (foto == null || foto.isEmpty()) {
+            // No se seleccionó una nueva imagen, utilizar la imagen actual
+            foto = oradorActual.getFoto();
+        }
 
         // Editar el orador en la base de datos
-        OradorDAO oradorDAO = new OradorDAO();
-        oradorDAO.editarOrador(id, nombre, apellido, temario);
+        oradorDAO.editarOrador(id, nombre, apellido, temario, foto);
 
         // Redirigir a la página del listado de oradores
         response.sendRedirect("lista-oradores.jsp");
+    } else {
+        // Orador no encontrado, redirigir o mostrar un mensaje - ver después
     }
+}
 
     private void borrarOrador(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));

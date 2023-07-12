@@ -1,16 +1,31 @@
 package dev.sgvero.confbsas.sgv;
 
 public class Orador {
+
     private int id;
     private String nombre;
     private String apellido;
     private String temario;
+    private String foto;
 
-    public Orador(int id, String nombre, String apellido, String temario) {
+    public Orador(int id, String nombre, String apellido, String temario, String foto) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.temario = temario;
+        this.foto = foto;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public String getFotoPath() {
+        return "img/" + this.foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public int getId() {
@@ -44,4 +59,8 @@ public class Orador {
     public void setTemario(String temario) {
         this.temario = temario;
     }
+    
+    public boolean tieneFoto() {
+    return foto != null && !foto.isEmpty();
+}
 }

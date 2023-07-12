@@ -5,7 +5,7 @@
     --white: rgb(253, 253, 253);
     --darkgreen: rgba(28, 54, 67, 1);
     --lightgreen: rgba(30, 83, 113, 1);
-    --yellow:  #ffc800;
+    --yellow: #FFC900;
 }
 
 *,
@@ -23,15 +23,31 @@ html {
     scroll-behavior: smooth;
 }
 
+.editar-foto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    width: 300px;
+}
+
+.editar-foto img {
+    width: 100%;
+}
+
 .bloque-datos {
-    background-color: #F8F9FA;
+    
     padding-top: 5px;
+}
+
+.bloque-orador {
+    margin: -5px 0 0;
 }
 
 .bloque-lista {
     width: 80%;
     max-width: 900px;
-    margin: 50px auto;
+    margin: 3rem auto;
 }
 
 code {
@@ -131,6 +147,10 @@ h6 {
 .btn__comprar {
     border-radius: .3rem;
     padding: .3rem 1rem;
+}
+
+.oradores {
+    padding: 5px 0;
 }
 
 .oradores__detalle {
@@ -388,12 +408,17 @@ a {
     color: var(--lightgreen);
 }
 
+.banda-editar {
+    background-color: var(--yellow);
+}
+
 .btn-orador-edit {
     color: var(--lightgreen);
 }
 
 .btn-orador-edit:hover {
-    color: rgba(30, 83, 113, 0.5);
+    color: var(--white);
+    /* color: rgba(30, 83, 113, 0.5); */
 }
 
 .btn-orador-del {
@@ -402,26 +427,30 @@ a {
 }
 
 .btn-orador-del:hover {
-    color: lightcoral;
+    color: var(--white);
+    /* color: lightcoral; */
 }
 
 .btn-orador-add {
     position: fixed;
-    top: 150px;
-    padding: 5px 14px;
-    border: 14px solid white;
+    top: 160px;
+    padding: 10px 16px;
+    /* border: 8px solid var(--white); */
     border-right: 1px solid var(--gray);
     border-radius: 24px 0 0 24px;
     background-color: rgb(150, 201, 62);
     color: var(--white);
-    transition: all 0.8s ease;
+    transition: all 0.5s ease;
     font-size: .8rem;
     text-transform: uppercase;
     z-index: 1100;
+    box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.1);
 }
 
 .btn-orador-add:hover {
     background-color: var(--gray);
+    /* border: 8px solid transparent; */
+    border-right: 10px solid rgb(150, 201, 62);
 }
 
 footer {
@@ -549,8 +578,7 @@ button.login:hover {
     }
 }
 
-@media (min-width: 376px) {
-}
+@media (min-width: 376px) {}
 
 @media (max-width: 567px) {
 
