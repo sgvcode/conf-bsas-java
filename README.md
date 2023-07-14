@@ -2,7 +2,8 @@
 
 ### 🌎🖥️📱 [Ir a página Conf Bs As](https://sgvcode.github.io/conf-bs-as/)<br>
 
-## Objetivos: Replicar según muestras dadas en aula virtual<br>
+## Objetivos:
+Replicar página de muestra, darle funcionalidad a 'Comprar Tickets' con Javascript y a 'Conviérte en orador' permitir la creación, lectura, edición y borrado de oradores.<br>
 
 1- TPI Frontend HTML, CSS, Bootstrap<br>
 2- TPI Frontend Javascritp<br>
