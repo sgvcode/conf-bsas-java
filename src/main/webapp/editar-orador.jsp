@@ -1,9 +1,3 @@
-<%--
-    Document   : editar-orador
-    Created on : 4 jul 2023, 20:23:37
-    Author     : SGVero
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="dev.sgvero.confbsas.sgv.OradorDAO" %>
 <%@ page import="dev.sgvero.confbsas.sgv.Orador" %>
