@@ -16,6 +16,10 @@ public class Orador {
         this.foto = foto;
     }
 
+    public boolean tieneFoto() {
+        return foto != null && !foto.isEmpty();
+    }
+
     public String getFoto() {
         return foto;
     }
@@ -59,8 +63,4 @@ public class Orador {
     public void setTemario(String temario) {
         this.temario = temario;
     }
-    
-    public boolean tieneFoto() {
-    return foto != null && !foto.isEmpty();
-}
 }
