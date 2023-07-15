@@ -36,7 +36,7 @@ html {
 }
 
 .bloque-datos {
-    
+
     padding-top: 5px;
 }
 
@@ -48,6 +48,49 @@ html {
     width: 80%;
     max-width: 900px;
     margin: 3rem auto;
+}
+
+.card {
+    border-radius: 0 !important;
+}
+
+.card-img-top {
+    border-radius: 0;
+}
+
+.card-oradores {
+    width: 80%;
+    display: flex;
+    margin: 70px auto;
+    padding: 50px 0;
+    max-width: 1200px;
+}
+
+.btn-card {
+    margin-left: 10px;
+}
+
+.btn-card:hover {
+    color: var(--yellow);
+    /* color: slategray; */
+}
+
+.temario-bloque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 6rem;
+    padding: 5px 0 0;
+    margin: 10px 0;
+    /*border-top: 1px solid grey;
+    border-bottom: 1px solid gray;*/
+    font-style: italic;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.card-body {
+    min-height: 200px;
 }
 
 code {
@@ -416,8 +459,9 @@ a {
     color: var(--lightgreen);
 }
 
-.btn-orador-edit:hover {
-    color: var(--white);
+.btn-orador-edit:hover,
+.btn-orador-del:hover {
+    color: slategrey;
     /* color: rgba(30, 83, 113, 0.5); */
 }
 
@@ -426,17 +470,12 @@ a {
     color: rgb(219, 54, 70);
 }
 
-.btn-orador-del:hover {
-    color: var(--white);
-    /* color: lightcoral; */
-}
-
 .btn-orador-add {
     position: fixed;
     top: 160px;
     padding: 10px 16px;
     /* border: 8px solid var(--white); */
-    border-right: 1px solid var(--gray);
+    border-right: 3px solid var(--gray);
     border-radius: 24px 0 0 24px;
     background-color: rgb(150, 201, 62);
     color: var(--white);
@@ -631,6 +670,10 @@ button.login:hover {
         background-size: cover;
     }
 
+    .temario-bloque {
+        height: 8rem;
+    }
+
     .hero p,
     h2,
     .btns {
@@ -676,6 +719,16 @@ button.login:hover {
 
     form {
         width: 640px;
+    }
+}
+
+@media (max-width: 930px) {
+    .card-oradores {
+        width: 80%;
+    }
+
+    .temario-bloque {
+        height: 5rem;
     }
 }
 
