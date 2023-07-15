@@ -11,4 +11,4 @@ Replicar página de muestra, darle funcionalidad a 'Comprar Tickets' con Javascr
 
 ![Objetivo 1](https://github.com/sgvcode/conf-bs-as/assets/106033066/c8645bfb-271e-411a-a2a3-7d5e6728f122)<br>
 
-![crud-github](https://github.com/sgvcode/conf-bsas-java/assets/106033066/e499ac61-fdba-4fc3-92b9-3ac00c499e12)<br>
+![listado-oradores](https://github.com/sgvcode/conf-bsas-java/assets/106033066/7b8ed576-4782-4b6b-a997-240627599cb5)<br>
