@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/OradorServlet")
+@WebServlet(name="OradorServlet", urlPatterns = "/los-oradores")
 public class OradorServlet extends HttpServlet {
 
     private OradorDAO oradorDAO;
@@ -69,7 +69,7 @@ public class OradorServlet extends HttpServlet {
 
         oradorDAO.guardarOrador(nombre, apellido, temario, foto);
 
-        response.sendRedirect(request.getContextPath() + "/OradorServlet");
+        response.sendRedirect(request.getContextPath() + "/los-oradores");
     }
 
     private void mostrarFormularioEdicion(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

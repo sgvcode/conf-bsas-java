@@ -7,7 +7,7 @@
         <p>Anótate como orador para dar una <a href="#">charla ignite</a>. Cuéntanos de qué quieres
             hablar!
         </p>
-        <form method="POST" action="OradorServlet" onsubmit="return validateForm()">
+        <form method="POST" action="los-oradores" onsubmit="return validateForm()">
             <input type="text" name="nombre" id="nombre" placeholder="Nombre" required />
             <input type="text" name="apellido" id="apellido" placeholder="Apellido" required />
             <textarea name="temario" id="comentario" placeholder="Sobre qué quieres hablar?"></textarea>

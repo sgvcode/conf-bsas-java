@@ -16,7 +16,7 @@
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="#">La conferencia</a>
                         <a class="nav-link" href="#oradores">Los oradores</a>
-                        <a class="nav-link" href="${pageContext.request.contextPath}/OradorServlet">Ver oradores</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/los-oradores">Ver oradores</a>
                         <a class="nav-link" href="#fecha">El lugar y la fecha</a>
                         <a class="nav-link" href="#form">Conviértete en orador</a>
                         <a class="nav-link nav-link__direct" href="#ticket">Comprar tickets</a>

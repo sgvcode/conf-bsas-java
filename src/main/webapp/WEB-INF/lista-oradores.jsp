@@ -4,22 +4,10 @@
 <%@ page import="java.util.List" %>
 
 <jsp:include page="componentes/head.jsp" />
-
-<body>
-    <menu class="container-fluid m-auto p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.jsp">
-                    <img src="img/codoacodo.png" alt="" width="90"
-                         class="d-inline-block align-text-middle">
-                    Conf Bs As
-                </a>
-                <div class="form-login">
-                    <button class="login" type="button" onclick="ingresar()">Ingresar</button>
-                </div>
-            </div>
-        </nav>
-    </menu>
+<jsp:include page="componentes/menu-o.jsp" />
+    
+        
+    
     <main class="listado">
         <div class="listado__db">
             <h2>Lista de Oradores Inscriptos</h2>
@@ -27,12 +15,12 @@
         <section class="popup__login" id="login">
             <form class="form-group">
                 <input type="text" class="form-control" id="username" placeholder="Usuario">
-                <input type="password" class="form-control" id="password" placeholder="Contraseï¿½a">
+                <input type="password" class="form-control" id="password" placeholder="Contraseña">
                 <input class="enviar" id="submit" type="submit" value="Enviar" />
             </form>
         </section>
         <div class="d-flex justify-content-end w-100 mt-5 btn-pos">
-            <a href="${pageContext.request.contextPath}/OradorServlet?form=agregar" class="btn-orador-add">Agregar orador</a>
+            <a href="${pageContext.request.contextPath}/los-oradores?form=agregar" class="btn-orador-add">Agregar orador</a>
         </div>
 
         <div class="card-oradores row d-flex m-auto">
@@ -53,10 +41,10 @@
                             </p>
                         </div>
                         <div class="botones-cards d-flex justify-content-end">
-                            <a href="${pageContext.request.contextPath}/OradorServlet?action=editar&id=<%= orador.getId() %>" class="btn-orador-edit btn-card">
+                            <a href="${pageContext.request.contextPath}/los-oradores?action=editar&id=<%= orador.getId() %>" class="btn-orador-edit btn-card">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
-                            <a href="OradorServlet?action=borrar&id=<%= orador.getId() %>"
+                            <a href="los-oradores?action=borrar&id=<%= orador.getId() %>"
                                onclick="return confirm('Estás seguro de que deseas borrar este orador?')"
                                class="btn-orador-del btn-card">
                                 <i class="fa-solid fa-trash-can"></i>
@@ -86,6 +74,6 @@
 
     <jsp:include page="componentes/scripts.jsp" />
 
-</body>
+
 
 </html>

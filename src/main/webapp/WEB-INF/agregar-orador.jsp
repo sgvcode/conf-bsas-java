@@ -3,15 +3,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <html>
 
-    <%@include file="componentes/head.jsp" %>
+    <jsp:include page="componentes/head.jsp" />
 
     <body>
 
         <main class="mt-5">
-            <%@include file="componentes/form-oradores.jsp" %>
+            <jsp:include page="componentes/form-oradores.jsp" />
         </main>
 
-        <%@include file="componentes/scripts.jsp" %>
+        <jsp:include page="componentes/scripts.jsp" />
     </body>
 
 </html>

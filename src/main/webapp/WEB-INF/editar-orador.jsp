@@ -1,19 +1,15 @@
-<%--
-    Document   : editar-orador
-    Created on : 4 jul 2023, 20:23:37
-    Author     : SGVero
---%>
+<%-- Document : oradores Created on : 4 jul 2023, 14:32:59 Author : SGVero --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="dev.sgvero.confbsas.sgv.OradorDAO" %>
 <%@ page import="dev.sgvero.confbsas.sgv.Orador" %>
 
-<html>
-    <%@include file="componentes/head.jsp"%>
-    <body>
 
+<jsp:include page="componentes/head.jsp" />
+<body>
+    <section>
         <%
-            // Obtener el ID del orador desde el parámetro de la URL
+            // Obtener el ID del orador desde el parÃ¡metro de la URL
             String idStr = request.getParameter("id");
             int id = Integer.parseInt(idStr);
 
@@ -31,7 +27,7 @@
             <div class="editar-foto">
                 <img id="vista-previa" src="<%= orador.getFotoPath() %>" alt="Vista previa de la foto" width="300" height="300">
             </div>
-            <form id="form-edicion" action="${pageContext.request.contextPath}/OradorServlet?action=editar" method="post" onsubmit="return guardarCambios()">
+            <form id="form-edicion" action="${pageContext.request.contextPath}/los-oradores?action=editar" method="post" onsubmit="return guardarCambios()">
                 <input type="hidden" name="id" value="<%= orador.getId() %>">
                 <input type="text" name="nombre" value="<%= orador.getNombre() %>">
                 <input type="text" name="apellido" value="<%= orador.getApellido() %>">
@@ -55,45 +51,45 @@
         <% 
             } 
         %>
+    </section>
 
-        <script>
+    <script>
 
-            var fotoActual = "<%= orador.getFotoPath() %>";
+        var fotoActual = "<%= orador.getFotoPath() %>";
 
-            function mostrarVistaPrevia() {
-                var archivo = document.getElementById('foto').files[0];
-                var vistaPrevia = document.getElementById('vista-previa');
+        function mostrarVistaPrevia() {
+            var archivo = document.getElementById('foto').files[0];
+            var vistaPrevia = document.getElementById('vista-previa');
 
-                if (archivo) {
-                    var lector = new FileReader();
-                    lector.onload = function (e) {
-                        vistaPrevia.src = e.target.result;
-                    }
-                    lector.readAsDataURL(archivo);
-                } else {
-                    vistaPrevia.src = fotoActual;
+            if (archivo) {
+                var lector = new FileReader();
+                lector.onload = function (e) {
+                    vistaPrevia.src = e.target.result;
+                }
+                lector.readAsDataURL(archivo);
+            } else {
+                vistaPrevia.src = fotoActual;
+            }
+        }
+
+        function guardarCambios() {
+            var form = document.getElementById('form-edicion');
+            var formData = new FormData(form);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', form.action);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    // Actualizar la vista previa de la foto con la nueva imagen
+                    var nuevaFoto = JSON.parse(xhr.responseText).foto;
+                    var vistaPrevia = document.getElementById('vista-previa');
+                    vistaPrevia.src = nuevaFoto;
                 }
             }
+            xhr.send(formData);
+        }
 
-            function guardarCambios() {
-                var form = document.getElementById('form-edicion');
-                var formData = new FormData(form);
+    </script>
 
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', form.action);
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                        // Actualizar la vista previa de la foto con la nueva imagen
-                        var nuevaFoto = JSON.parse(xhr.responseText).foto;
-                        var vistaPrevia = document.getElementById('vista-previa');
-                        vistaPrevia.src = nuevaFoto;
-                    }
-                }
-                xhr.send(formData);
-            }
-
-        </script>
-
-        <%@include file="componentes/scripts.jsp"%>
-    </body>
-</html>
+    <jsp:include page="componentes/scripts.jsp" />
+</body>

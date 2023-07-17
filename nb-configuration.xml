@@ -25,5 +25,7 @@ Any value defined here will override the pom.xml file value but is only applicab
         <org-netbeans-modules-web-clientproject-api.js_2e_libs_2e_folder>js/libs</org-netbeans-modules-web-clientproject-api.js_2e_libs_2e_folder>
         <org-netbeans-modules-javascript2-requirejs.enabled>true</org-netbeans-modules-javascript2-requirejs.enabled>
         <netbeans.compile.on.save>none</netbeans.compile.on.save>
+        <netbeans.hint.jdkPlatform>JDK_17-Eclipse</netbeans.hint.jdkPlatform>
+        <org-netbeans-modules-html-editor-lib.default-html-public-id>HTML5</org-netbeans-modules-html-editor-lib.default-html-public-id>
     </properties>
 </project-shared-configuration>
