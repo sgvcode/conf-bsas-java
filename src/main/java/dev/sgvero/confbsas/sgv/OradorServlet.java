@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(urlPatterns = "/OradorServlet")
 public class OradorServlet extends HttpServlet {
@@ -28,8 +29,10 @@ public class OradorServlet extends HttpServlet {
             } else if (action.equals("borrar")) {
                 borrarOrador(request, response);
             }
+        } else if (request.getParameter("form") != null && request.getParameter("form").equals("agregar")) {
+            mostrarFormularioAgregar(request, response);
         } else {
-            response.sendRedirect("lista-oradores.jsp");
+            mostrarListaOradores(request, response);
         }
     }
 
@@ -44,6 +47,16 @@ public class OradorServlet extends HttpServlet {
         }
     }
 
+    private void mostrarListaOradores(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Orador> oradores = oradorDAO.getOradores();
+        request.setAttribute("oradores", oradores);
+        request.getRequestDispatcher("/WEB-INF/lista-oradores.jsp").forward(request, response);
+    }
+
+    private void mostrarFormularioAgregar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/WEB-INF/agregar-orador.jsp").forward(request, response);
+    }
+
     private void agregarOrador(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
@@ -56,7 +69,7 @@ public class OradorServlet extends HttpServlet {
 
         oradorDAO.guardarOrador(nombre, apellido, temario, foto);
 
-        response.sendRedirect("lista-oradores.jsp");
+        response.sendRedirect(request.getContextPath() + "/OradorServlet");
     }
 
     private void mostrarFormularioEdicion(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -66,7 +79,8 @@ public class OradorServlet extends HttpServlet {
 
         if (orador != null) {
             request.setAttribute("orador", orador);
-            request.getRequestDispatcher("editar-orador.jsp").forward(request, response);
+            String path = "/WEB-INF/editar-orador.jsp";
+            request.getRequestDispatcher(path).forward(request, response);
         } else {
             // Orador no encontrado, redirigir o mostrar un mensaje - ver después
         }
@@ -88,7 +102,8 @@ public class OradorServlet extends HttpServlet {
 
             oradorDAO.editarOrador(id, nombre, apellido, temario, foto);
 
-            response.sendRedirect("lista-oradores.jsp");
+            String path = "/WEB-INF/lista-oradores.jsp";
+            request.getRequestDispatcher(path).forward(request, response);
         } else {
             // Orador no encontrado, redirigir o mostrar un mensaje - ver después
         }
@@ -99,6 +114,7 @@ public class OradorServlet extends HttpServlet {
 
         oradorDAO.borrarOrador(id);
 
-        response.sendRedirect("lista-oradores.jsp");
+        String path = "/WEB-INF/lista-oradores.jsp";
+        request.getRequestDispatcher(path).forward(request, response);
     }
 }

@@ -2,23 +2,24 @@
     <!DOCTYPE html>
     <html lang="es">
 
-    <%@include file="componentes/head.jsp" %>
+    <jsp:include page="WEB-INF/componentes/head.jsp" />
+    
 
         <body>
-            <%@include file="componentes/menu.jsp" %>
+            <jsp:include page="WEB-INF/componentes/menu.jsp" />
 
                 <main>
-                    <%@include file="componentes/contenido-index.jsp" %>
-                        <%@include file="componentes/form-oradores.jsp" %>
+                    <jsp:include page="WEB-INF/componentes/contenido-index.jsp" />
+                        <jsp:include page="WEB-INF/componentes/form-oradores.jsp" />
 
-                            <%@include file="componentes/form-tickets.jsp" %>
+                            <jsp:include page="WEB-INF/componentes/form-tickets.jsp" />
                 </main>
 
                 <footer>
-                    <%@include file="componentes/footer.jsp" %>
+                    <jsp:include page="WEB-INF/componentes/footer.jsp" />
                 </footer>
 
-                <%@include file="componentes/scripts.jsp" %>
+                        <jsp:include page="WEB-INF/componentes/scripts.jsp" />
         </body>
 
     </html>
