@@ -1,6 +1,6 @@
 ## Online
 
-### 🌎🖥️📱 [Ir a página Conf Bs As](https://sgvcode.github.io/conf-bs-as/)<br>
+### 🌎🖥️📱 [Ir a página Conf Bs As](https://sgvcode.github.io/conf-bs-as/)<br> HTML/CSS/JS
 
 ## Objetivos:
 Replicar página de muestra, darle funcionalidad a 'Comprar Tickets' con Javascript y a 'Conviérte en orador' permitir la creación, lectura, edición y borrado de oradores.<br>
