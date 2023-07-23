@@ -1,0 +1,21 @@
+Estructura sigue siendo:
+Web Pages/
+   WEB-INF/
+      oradores.jsp
+      agregar-orador.jsp
+      editar-orador.jsp
+   img/... //aqui estan las imagenes del proyecto
+   index.html
+   styles.css
+   tickets.js
+   favicon
+
+Source Packages/
+   dev.sgvero.confbsas.sgv/
+       Orador.java
+       OradorDAO.java
+       DatabaseConnection.java
+   dev.sgvero.confbsas.sgv.app/
+      OradorServlet.java
+
+BD: confbsas, Tabla: oradores (id (INT,ai), nombre,apellido,temario,foto(todas string)), us/pass: root/root, 3306
