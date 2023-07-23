@@ -1,16 +1,16 @@
 ## target folder at the top level of the project structue and paths and contents underneath it
 
-target/
+## target/
 
-target/*
+## target/*
 
 
 
-## target folder at any level of the project structue
+## ## target folder at any level of the project structue
 
-**/target
+## **/target
 
-/target
+## /target
 
 Thumbs.db
 .DS_Store
