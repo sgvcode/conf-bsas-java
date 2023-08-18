@@ -1,5 +1,3 @@
-## Online
-
 ## Objetivos:
 Replicar página de muestra, darle funcionalidad a 'Comprar Tickets' con Javascript y a 'Conviérte en orador' permitir la creación, lectura, edición y borrado de oradores.<br>
 
